@@ -1,5 +1,14 @@
-def parse(line):
+def parse_line(line):
+    """parse a given string into tokens
+
+    Args:
+        line: str
+
+    Description:
+        this function splits a given string by space characters or '"'. Characters withing 2 '"' are considered single tokens
+    """
     if line and isinstance(line, str):
+        line = line.strip()
         token = '';
         result = []
         i = 0;
@@ -7,7 +16,7 @@ def parse(line):
             if line[i] == ' ':
                 i += 1
                 continue
-            if line[i] == '"':
+            if line[i] in '"':
                 i += 1
                 while i < len(line) and line[i] != '"':
                     token += line[i]
@@ -23,3 +32,5 @@ def parse(line):
                 i += 1
                 token = ''
         return result
+    else:
+        return []
