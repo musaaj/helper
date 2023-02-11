@@ -6,6 +6,8 @@ def parse_line(line):
 
     Description:
         this function splits a given string by space characters or '"'. Characters withing 2 '"' are considered single tokens
+
+    Returns: list of strings
     """
     if line and isinstance(line, str):
         line = line.strip()
