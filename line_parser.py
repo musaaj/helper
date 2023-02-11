@@ -30,10 +30,11 @@ def parse_line(line):
                 i += 1
             elif i < length:
                 while i < length and line[i] != ' ':
+                    if line[i] == '"':
+                        break
                     token += line[i]
                     i += 1
                 result.append(token)
-                i += 1
                 token = ''
         return result
     else:
